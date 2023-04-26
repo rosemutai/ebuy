@@ -2,7 +2,7 @@ const Navbar = () => {
   return (
     <div className='navbar px-24 py-2 bg-white flex items-center'>
       <div className="logo-section">
-        <a href="#" className="logo text-3xl font-bold">eBuy</a>
+        <a href="#" className="logo text-3xl font-bold">eBu<span className="text-brownish text-4xl">y</span></a>
       </div>
       <div className="search-form w-7/12 ml-12">
         <form className="w-full flex">
