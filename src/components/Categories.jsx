@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ImageCarousel from './ImageCarousel';
 
 const Categories = () => {
 
@@ -16,8 +17,8 @@ const Categories = () => {
 
   }, [])
   return (
-    <div className="categories-ad my-8 mx-24  bg-white rounded-md h-72 w-[15%]">
-      <div className="categories flex flex-col px-2">
+    <div className="categories-ad my-8 bg-white rounded-md h-72 gap-2 grid grid-cols-2">
+      <div className="categories flex flex-col px-2 col-start-2 col-end-6 bg-blue-600">
         {categories.map((category) => (
           <>
             <a 
@@ -30,6 +31,9 @@ const Categories = () => {
             <hr />
           </>
         ))}
+      </div>
+      <div className="ad col-start-6 col-end-11 bg-red-600">
+        <ImageCarousel />
       </div>
     </div>
   )
