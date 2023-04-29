@@ -1,8 +1,8 @@
 const Navbar = () => {
   return (
-    <div className='navbar px-36 pt-12 -2 bg-white flex items-center'>
+    <div className='navbar px-36 pt-12 -2 bg-white flex items-center mb-12'>
       <div className="logo-section">
-        <a href="#" className="logo text-3xl font-bold">eBu<span className="text-brownish text-4xl">y</span></a>
+        <a href="#" className="logo text-3xl font-bold">eBu<span className="text-brownish/70 text-4xl">y</span></a>
       </div>
       <div className="search-form w-7/12 ml-12">
         <form className="w-full flex">
@@ -13,10 +13,10 @@ const Navbar = () => {
             id="search" 
             placeholder="Search products, brands and categories" 
             className="placeholder:pl-8 placeholder:text-gray-300 placeholder:text-lg
-              border w-full border-gray-500 bg-white
+              border w-full border-gray-400 bg-white
               p-2 rounded-md"
           />
-          <button className="py-2 px-6 ml-4 bg-brownish font-semibold rounded-md text-white">Search</button>
+          <button className="py-2 px-6 ml-4 bg-brownish/70 font-semibold rounded-md text-white">Search</button>
         </form>
       </div>
 
