@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <div className='navbar px-36 pt-12 -2 bg-white flex items-center mb-12'>
+    <div className='navbar px-36 pt-8 bg-white flex items-center mb-12'>
       <div className="logo-section">
         <a href="#" className="logo text-3xl font-bold">eBu<span className="text-brownish/70 text-4xl">y</span></a>
       </div>
