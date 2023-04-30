@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
-    <div className='navbar px-36 pt-8 bg-white flex items-center mb-12'>
+    <div className='navbar px-36 py-8 bg-white flex items-center mb-12 fixed w-full shadow-sm shadow-brownish/40'>
       <div className="logo-section">
-        <a href="#" className="logo text-3xl font-bold">eBu<span className="text-brownish/70 text-4xl">y</span></a>
+        <Link to="/"
+          className="logo text-3xl font-bold cursor-pointer">eBu<span className="text-brownish/70 text-4xl">y</span>
+        </Link>
       </div>
       <div className="search-form w-7/12 ml-12">
         <form className="w-full flex">
