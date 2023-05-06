@@ -5,7 +5,6 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
 
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     const fetchASingleProduct = async () => {
@@ -37,7 +36,7 @@ const ProductDetails = () => {
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex flex-col items-cen justify-center">
             <h2
               className="text-xs text-white text-center title-font tracking-widest 
-          bg-brownish/70 p-2 rounded-2xl uppercase w-24"
+            bg-brownish/70 p-2 rounded-2xl uppercase w-1/2"
             >
               {product.category}
             </h2>
@@ -57,13 +56,12 @@ const ProductDetails = () => {
                 >
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                 </svg>
-
-                <span className="text-gray-600 ml-3">
-                  {product.rating.rate} |{" "}
+                {/* <span className="text-gray-600 ml-3">
+                  {product.rating["rate"]} |{" "}
                 </span>
                 <span className="text-gray-600 ml-3">
-                  {product.rating.count} Reviews
-                </span>
+                  {product.rating["count"]} Reviews
+                </span> */}
               </span>
             </div>
             <p className="leading-relaxed pb-5 border-b-2 border-gray-100 mb-8">
