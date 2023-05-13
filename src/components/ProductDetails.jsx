@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../features/cart/cartSlice";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch()
   const [product, setProduct] = useState({});
 
   const { id } = useParams();
@@ -10,18 +13,22 @@ const ProductDetails = () => {
     const fetchASingleProduct = async () => {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setProduct(data);
     };
     fetchASingleProduct();
   }, [id]);
+
+  const addToCart = (item) => {
+    dispatch(addItemToCart(item));
+  }
 
   !Object.keys(product).length > 0 && (
     <div
       className="no-products w-1/2 bg-greyish/50
     mx-auto p-4 border border-brownish/70"
     >
-      No products Found
+      No product Found
     </div>
   );
   return (
@@ -73,6 +80,7 @@ const ProductDetails = () => {
                 KSh. {product.price}
               </span>
               <button
+                onClick={() => {addToCart({product, quantity: 1})}}
                 className="flex ml-auto text-white hover:bg-brownish/70 border-0 py-2 px-6 focus:outline-none
               bg-black/90 rounded"
               >
