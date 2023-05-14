@@ -65,13 +65,54 @@ const Cart = () => {
 
         <div className="continue-shopping my-6 ml-4 text-brownish">
           <Link to="/">
-            <FontAwesomeIcon icon={faArrowLeft} className="mr-2"/>
+            <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
             Continue Shopping
           </Link>
         </div>
       </div>
 
-      <div className="right-section w-1/4"></div>
+      <div className="right-section w-1/4 mt-12 px-4 border border-brownish rounded-md ml-2">
+        <div className="top p-4">
+          <h2 className="text-2xl font-semibold">Order Summary</h2>
+        </div>
+        <hr className="border-x-0 border-t-0 border-b border-b-slate-200 mx-2" />
+        <div className="top flex justify-between py-3">
+          <h5>items 3</h5>
+          <p className="total">5464</p>
+        </div>
+
+        <form className="flex flex-col">
+          <div className="shipping flex flex-col mb-6">
+            <label
+              htmlFor="shipping"
+              className="text-sm font-bold tracking-wider text-brownish"
+            >
+              SHIPPING
+            </label>
+            <input type="text" id="shipping" className="bg-slate-100" />
+          </div>
+
+          <div className="promocode flex flex-col mb-6">
+            <label
+              htmlFor="promo"
+              className="text-sm font-bold tracking-wider text-brownish"
+            >
+              PROMO CODE
+            </label>
+            <input type="text" id="promo" className="bg-slate-100 p-2" />
+          </div>
+          <button className="bg-brownish w-1/2 text-white py-1 px-4 rounded-md text-center">
+            APPLY
+          </button>
+        </form>
+        <hr className="border-x-0 border-t-0 border-b border-b-slate-200 mx-2 mt-8" />
+        <div className="top flex justify-between py-3">
+          <h5 className="totalcost font-bold tracking-wider text-sm">TOTAL COST</h5>
+          <p className="total">5464</p>
+        </div>
+          <button className="bg-black/90 text-sm text-white py-2 tracking-wider mt-4 px-4 w-full text-center">CHECKOUT</button>
+
+      </div>
     </div>
   );
 };
