@@ -12,6 +12,8 @@ import {
   clearCart,
   removeASingleItem,
   calculatateCartTotalAmount,
+  increment,
+  decrement
 } from "../features/cart/cartSlice";
 
 const Cart = () => {
@@ -32,6 +34,18 @@ const Cart = () => {
   useEffect(() => {
     dispatch(calculatateCartTotalAmount());
   }, [cart, dispatch]);
+
+  // increment an item by one
+  const incrementItem = (id) => {
+    dispatch(increment(id));
+  };
+
+  // decrement an item by one
+  const decrementItem = (id) => {
+    dispatch(decrement(id));
+  };
+
+  
 
   return (
     <div className="shopping-cart px-24 flex my-32">
@@ -60,19 +74,25 @@ const Cart = () => {
                 </div>
 
                 <div className="increase-decrease flex">
-                  <button className="bg-brownish/70 text-white px-1 rounded-sm">
-                    <FontAwesomeIcon icon={faMinus} />
+                  <button
+                    onClick={() => incrementItem(item.product.id)}
+                    className="bg-brownish/70 text-white px-1 rounded-sm"
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
                   </button>
                   <span className="px-2 font-bold">{item.quantity}</span>
-                  <button className="bg-brownish/70 text-white px-1 rounded-sm">
-                    <FontAwesomeIcon icon={faPlus} />
+                  <button
+                    onClick={() => decrementItem(item.product.id)}
+                    className="bg-brownish/70 text-white px-1 rounded-sm"
+                  >
+                    <FontAwesomeIcon icon={faMinus} />
                   </button>
                 </div>
 
                 <h5 className="item-price">KSh.{item.product.price}</h5>
                 <FontAwesomeIcon
                   icon={faTimes}
-                  onClick={() => removeItem(item.product.id)}
+                  onClick={() => removeItem(cart)}
                   className="cursor-pointer"
                 />
               </div>
