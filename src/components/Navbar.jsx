@@ -35,7 +35,7 @@ const Navbar = () => {
 
         <div className="help flex mr-3">
           <span className="material-symbols-outlined">help</span>
-          <p className="user-name">Help</p>
+          <a href="#hghg" className="user-name pl-2">Help</a>
         </div>
 
         <div className="cart flex relative">
