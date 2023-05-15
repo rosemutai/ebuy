@@ -1,22 +1,38 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faTimes, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { clearCart, removeASingleItem } from "../features/cart/cartSlice";
+import {
+  faPlus,
+  faMinus,
+  faTimes,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  clearCart,
+  removeASingleItem,
+  calculatateCartTotalAmount,
+} from "../features/cart/cartSlice";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const { cart, cartTotal } = useSelector((state) => state.cart);
 
-  const dispatch = useDispatch()
-  const { cart } = useSelector((state) => state.cart);
-
+  // Clear the whole shopping cart
   const clearShoppingCart = () => {
-    dispatch(clearCart())
-  }
+    dispatch(clearCart());
+  };
 
+  // Remove a single item from cart
   const removeItem = (id) => {
     dispatch(removeASingleItem(id));
-  }
-  
+  };
+
+  // calculate the total amount in shopping cart
+  useEffect(() => {
+    dispatch(calculatateCartTotalAmount());
+  }, [cart, dispatch]);
+
   return (
     <div className="shopping-cart px-24 flex my-32">
       <div className="left-section w-3/4 border border-brownish rounded-md mt-12">
@@ -115,11 +131,14 @@ const Cart = () => {
         </form>
         <hr className="border-x-0 border-t-0 border-b border-b-slate-200 mx-2 mt-8" />
         <div className="top flex justify-between py-3">
-          <h5 className="totalcost font-bold tracking-wider text-sm">TOTAL COST</h5>
-          <p className="total">5464</p>
+          <h5 className="totalcost font-bold tracking-wider text-sm">
+            TOTAL COST
+          </h5>
+          <p className="total">KSh. {cartTotal}</p>
         </div>
-          <button className="bg-black/90 text-sm text-white py-2 tracking-wider mt-4 px-4 w-full text-center">CHECKOUT</button>
-
+        <button className="bg-black/90 text-sm text-white py-2 tracking-wider mt-4 px-4 w-full text-center">
+          CHECKOUT
+        </button>
       </div>
     </div>
   );
