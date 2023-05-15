@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../features/cart/cartSlice";
 
 const ProductDetails = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [product, setProduct] = useState({});
 
   const { id } = useParams();
@@ -13,7 +14,6 @@ const ProductDetails = () => {
     const fetchASingleProduct = async () => {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const data = await response.json();
-      // console.log(data);
       setProduct(data);
     };
     fetchASingleProduct();
@@ -21,6 +21,7 @@ const ProductDetails = () => {
 
   const addToCart = (item) => {
     dispatch(addItemToCart(item));
+    navigate("/cart");
   }
 
   !Object.keys(product).length > 0 && (
