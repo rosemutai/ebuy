@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faTimes, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { clearCart } from "../features/cart/cartSlice";
+import { clearCart, removeASingleItem } from "../features/cart/cartSlice";
 
 const Cart = () => {
 
@@ -11,6 +11,10 @@ const Cart = () => {
 
   const clearShoppingCart = () => {
     dispatch(clearCart())
+  }
+
+  const removeItem = (id) => {
+    dispatch(removeASingleItem(id));
   }
   
   return (
@@ -50,7 +54,11 @@ const Cart = () => {
                 </div>
 
                 <h5 className="item-price">KSh.{item.product.price}</h5>
-                <FontAwesomeIcon icon={faTimes} />
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  onClick={() => removeItem(item.product.id)}
+                  className="cursor-pointer"
+                />
               </div>
             );
           })}
