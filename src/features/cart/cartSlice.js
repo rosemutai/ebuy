@@ -10,7 +10,6 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action) => {
-      console.log(action.payload)
       const existingCartItem = state.cart.findIndex((item) => item.product.id === action.payload.product.id)
       if(existingCartItem >= 0) {
         state.cart[existingCartItem].quantity += 1
@@ -42,10 +41,20 @@ const CartSlice = createSlice({
 
     },
 
-    calculatateCartTotalAmount: (state, action) => {
+    calculatateCartTotalAmount: (state) => {
       let total = state.cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
       state.cartTotal = Number(total)
-    }
+    },
+
+    increment: (state, action) => {
+      const existingCartItem = state.cart.findIndex((item) => item.product.id === action.payload.product.id)
+      if (existingCartItem >= 0) {
+        state.cart[existingCartItem].quantity += 1
+        localStorage.setItem('cart', JSON.stringify(state.cart))
+      }
+    },
+
+   
   }
 })
 
@@ -53,6 +62,7 @@ const CartSlice = createSlice({
 export const {
   addItemToCart, clearCart,
   removeASingleItem,
-  calculatateCartTotalAmount
+  calculatateCartTotalAmount,
+  increment,
 } = CartSlice.actions
 export default CartSlice.reducer
