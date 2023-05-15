@@ -54,7 +54,13 @@ const CartSlice = createSlice({
       }
     },
 
-   
+    decrement: (state, action) => {
+      const existingCartItem = state.cart.findIndex((item) => item.product.id === action.payload.product.id)
+      if (existingCartItem >= 0) {
+        state.cart[existingCartItem].quantity -= 1
+        localStorage.setItem('cart', JSON.stringify(state.cart))
+      }
+    }
   }
 })
 
@@ -64,5 +70,6 @@ export const {
   removeASingleItem,
   calculatateCartTotalAmount,
   increment,
+  decrement,
 } = CartSlice.actions
 export default CartSlice.reducer
