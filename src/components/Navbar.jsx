@@ -1,5 +1,9 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
+  const { cart } = useSelector((state) => state.cart);
+
   return (
     <div className="navbar px-36 py-8 bg-white flex items-center mb-12 fixed w-full shadow-sm shadow-brownish/40">
       <div className="logo-section">
@@ -35,7 +39,9 @@ const Navbar = () => {
 
         <div className="help flex mr-3">
           <span className="material-symbols-outlined">help</span>
-          <a href="#hghg" className="user-name pl-2">Help</a>
+          <a href="#hghg" className="user-name pl-2">
+            Help
+          </a>
         </div>
 
         <div className="cart flex relative">
@@ -45,7 +51,7 @@ const Navbar = () => {
            bg-brownish p-3 w-4 h-4 rounded-[50%]"
           >
             <span className="absolute textcenter left-2 inset-1/4 text-xs ">
-              6
+              {cart.length}
             </span>
           </p>
           <p className="user-name ml-3">Cart</p>
