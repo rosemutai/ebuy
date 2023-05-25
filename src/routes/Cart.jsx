@@ -68,7 +68,7 @@ const Cart = () => {
                   alt="jacket"
                   className="w-20 h-20 object-contain"
                 />
-                <div className="details ">
+                <div className="details basis-2/4 ">
                   <p className="j">{item.product.title}</p>
                   <p className="text-brownish">{item.product.category}</p>
                 </div>
@@ -121,8 +121,10 @@ const Cart = () => {
         </div>
         <hr className="border-x-0 border-t-0 border-b border-b-slate-200 mx-2" />
         <div className="top flex justify-between py-3">
-          <h5>items 3</h5>
-          <p className="total">5464</p>
+          <h5 className="totalcost font-bold tracking-wider text-sm">ITEMS:</h5>
+          <p className="total font-bold tracking-wider text-sm">
+            {cart.length}
+          </p>
         </div>
 
         <form className="flex flex-col">
