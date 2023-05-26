@@ -33,7 +33,7 @@ const ProductDetails = () => {
     </div>
   );
   return (
-    <section className="text-gray-600 body-font overflow-hidden pt-12">
+    <section className="mt-24 md:mt-0 text-gray-600 body-font overflow-hidden pt-12">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
@@ -41,7 +41,7 @@ const ProductDetails = () => {
             className="lg:w-1/2 w-full lg:h-96 h-64 object-contain object-center rounded"
             src={product.image}
           />
-          <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex flex-col items-cen justify-center">
+          <div className="lg:w-1/2 w-full mx-auto lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex flex-col items-cen justify-center">
             <h2
               className="text-xs text-white text-center title-font tracking-widest 
             bg-brownish/70 p-2 rounded-2xl uppercase w-1/2"
