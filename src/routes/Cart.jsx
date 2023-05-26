@@ -45,14 +45,21 @@ const Cart = () => {
     dispatch(decrement(id));
   };
 
-  
+  const EmptyCart = () => {
+    return (
+      <div className="mt-60 md:mt-44 w-11/12 mx-auto md:w-1/2 text-2xl font-bold">
+        <h1 className="text-center">Your Cart is Empty</h1>
+      </div>
+    );
+  }
 
-  return (
-    <div className="shopping-cart px-24 flex my-32">
-      <div className="left-section w-3/4 border border-brownish rounded-md mt-12">
+  const LoadedCart = () => {
+    return (
+      <div className="shopping-cart px-4 md:px-24 flex md:flex-row flex-col mt-56 md:my-32">
+      <div className="left-section w-full md:w-3/4 border border-brownish rounded-md mt-12">
         <div className="top flex justify-between p-4">
           <h2 className="text-2xl font-bold">Your Cart</h2>
-          <p className="quantity text-lg font-semibold">3 items</p>
+          <p className="quantity text-lg font-semibold">{cart.length} items</p>
         </div>
         <hr className="border-x-0 border-t-0 border-b border-b-slate-200 mx-4" />
         {cart &&
@@ -60,16 +67,16 @@ const Cart = () => {
             return (
               <div
                 key={item.product.id}
-                className="w-[98%] mb-4 mx-auto item bge-500 p-4 flex items-center justify-between
+                className="w-[98%] mb-4 mx-auto item p-4 flex items-center justify-between
                   border-x-0 border-t-0 border-b-2 border-b-slate-100"
               >
                 <img
                   src={item.product.image}
                   alt="jacket"
-                  className="w-20 h-20 object-contain"
+                  className="w-12 md:w-20 h-12 md:h-20 object-contain"
                 />
-                <div className="details basis-2/4 ">
-                  <p className="j">{item.product.title}</p>
+                <div className="details basis-1/4 md:basis-2/4 ">
+                  <p className="text-sm md:text-base">{item.product.title}</p>
                   <p className="text-brownish">{item.product.category}</p>
                 </div>
 
@@ -83,7 +90,7 @@ const Cart = () => {
                   <span className="px-2 font-bold">{item.quantity}</span>
                   <button
                     onClick={() => decrementItem(item.product.id)}
-                    className="bg-brownish/70 text-white px-1 rounded-sm"
+                    className="bg-brownish/70 text-white px-1 rounded-sm "
                   >
                     <FontAwesomeIcon icon={faMinus} />
                   </button>
@@ -115,7 +122,7 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="right-section w-1/4 mt-12 px-4 border border-brownish rounded-md ml-2">
+      <div className="right-section w-full md:w-1/4 mt-12 px-4 border border-brownish rounded-md ml-2">
         <div className="top p-4">
           <h2 className="text-2xl font-semibold">Order Summary</h2>
         </div>
@@ -163,7 +170,11 @@ const Cart = () => {
         </button>
       </div>
     </div>
-  );
+    )
+  };
+  
+
+  return <>{cart.length === 0 ? <EmptyCart /> : <LoadedCart />}</>;
 };
 
 export default Cart;
