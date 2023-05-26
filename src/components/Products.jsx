@@ -5,9 +5,9 @@ import { Link } from "react-router-dom"
 const Products = ({ items }) => {
 
   return (
-    <div className='ml-2 flex flex-wrap gap-x-2 gap-y-4 p-3 w-full justify-center'>
+    <div className='ml-2 grid grid-cols-2 md:grid-cols-4 mdflex mdflex-wrap gap-11 md:gap-2 p-3 w-full '>
         { items.map((item) => (
-          <div key={item.id} className="product-card bg-white h-60 p-2 w-[12rem] border border-gray-300
+          <div key={item.id} className="product-card bg-white h-60 p-2 w-28 md:w-48 border border-gray-200 md:border-gray-300
             rounded-sm hover:shadow hover:shadow-gray-300">
               <Link to={`/products/${item.id}`}>
                 <img src={item.image}  className='w-24 h-24 object-contain'/>
