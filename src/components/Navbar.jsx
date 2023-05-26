@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Transition } from "@headlessui/react";
 
 const Navbar = () => {
   const { cart } = useSelector((state) => state.cart);
 
   return (
-    <div className="navbar px-4 md:px-36 py-8 bg-white flex flex-col md:flex-row mb-12 fixed w-full shadow-sm shadow-brownish/40">
+    <div className="navbar px-4 md:px-36 py-8 bg-white flex flex-col md:flex-row mb-12 
+      fixed w-full shadow-sm shadow-brownish/40">
       <div className="logo-section flex justify-between w-full pb-5 md:pb-0 md:w-1/4">
         <Link to="/" className="logo text-3xl font-bold cursor-pointer">
           eBu<span className="text-brownish/70 text-4xl">y</span>
