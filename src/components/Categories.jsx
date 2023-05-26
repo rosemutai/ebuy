@@ -36,7 +36,7 @@ const Categories = () => {
   const DisplayProducts = () => {
     return (
       <>
-      <div className="categories flex flex-col bg-brownish/70 h-96 px-2 w-[16%]">
+      <div className="categories flex flex-col bg-brownish/70 h-96 px-2 md:w-[16%]">
         <div className='h-full'>
           <button
             type='button' 
@@ -97,7 +97,7 @@ const Categories = () => {
     )
   }
   return (
-    <div className="categories-ad py-24 pl-32 pr-12 bg-white min-h-screen w-screen rounded-md flex">
+    <div className="categories-ad py-24 pl-4 md:pl-32 pr-12 bg-white min-h-screen w-screen rounded-md flex">
         {loading ? <ShowLoading /> : <DisplayProducts /> }
     </div>
   )
