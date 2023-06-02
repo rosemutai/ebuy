@@ -3,8 +3,7 @@ import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
 import Cart from "./routes/Cart";
-
-
+import SignUp from './routes/SignUp';
 
 function App() {
 
@@ -13,9 +12,10 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/products/:id" element={<ProductDetails />}/>
-        <Route path="/cart" element={<Cart />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );
