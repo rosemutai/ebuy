@@ -81,6 +81,7 @@ const SignUp = () => {
           </label>
           <input
             type="email"
+            required
             id="email"
             className="w-full p-2 rounded-sm focus:outline-0"
             value={email}
@@ -94,6 +95,7 @@ const SignUp = () => {
           </label>
           <input
             type="text"
+            required
             id="username"
             className="w-full p-2 rounded-sm focus:outline-0"
             value={username}
@@ -119,6 +121,7 @@ const SignUp = () => {
           </label>
           <input
             type="password"
+            required
             id="password"
             className="w-full p-2 rounded-sm focus:outline-0"
             value={password}
@@ -132,6 +135,7 @@ const SignUp = () => {
           </label>
           <input
             type="password"
+            required
             id="confirmpassword"
             className="w-full p-2 rounded-sm focus:outline-0"
             value={confirmPassword}
