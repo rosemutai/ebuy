@@ -4,6 +4,7 @@ import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
 import Cart from "./routes/Cart";
 import SignUp from './routes/SignUp';
+import Login from './routes/Login';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
