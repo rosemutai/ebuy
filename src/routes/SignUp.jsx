@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { database } from '../firebase';
 import { ref, push, child, update } from "firebase/database";
 
 const SignUp = () => {
 
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
@@ -44,6 +46,7 @@ const SignUp = () => {
     setTimeout(() => {
       setSuccessMessage("");
     }, 3000);
+    navigate('/')
     return update(ref(database), updates);
       
     } catch (error) {
